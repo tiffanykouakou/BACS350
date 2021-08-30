@@ -21,8 +21,9 @@ urlpatterns = [
 ]
 
 from django.urls import path
-from pages.views import homePageView
+from pages.views import homePageView, testPageView
 
 urlpatterns = [
     path('', homePageView)
+    path('test', testPageView)
 ]

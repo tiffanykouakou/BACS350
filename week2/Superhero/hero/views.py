@@ -9,8 +9,8 @@ class HulkView(TemplateView):
         }
 
 
-class IronManView(TemplateView):
-    template_name = "iron_man.html"
+class WonderWomanView(TemplateView):
+    template_name = "wonder_woman.html"
 
-class BlackWidowView(TemplateView):
-    template_name = "black_widow.html"
+class SpiderManView(TemplateView):
+    template_name = "spider_man.html"

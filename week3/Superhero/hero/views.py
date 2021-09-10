@@ -10,11 +10,11 @@ class HulkView(TemplateView):
 
 
 class WonderWomanView(TemplateView):
-    template_name = "wonder_woman.html"
+    template_name = 'wonder_woman.html'
 
 class SpiderManView(TemplateView):
-    template_name = "spider_man.html"
+    template_name = 'spider_man.html'
 
 class HomeView(TemplateView):
-    template_name = "Home.html"
+    template_name = 'Home.html'
 

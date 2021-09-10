@@ -14,3 +14,7 @@ class WonderWomanView(TemplateView):
 
 class SpiderManView(TemplateView):
     template_name = "spider_man.html"
+
+class HomeView(TemplateView):
+    template_name = "Home.html"
+

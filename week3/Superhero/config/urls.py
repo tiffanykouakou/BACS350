@@ -7,3 +7,4 @@ urlpatterns = [
     path('wonderwoman', WonderWomanView.as_view()),
     path('spiderman', SpiderManView.as_view()),
 ]
+#fixeddddddddddddddd

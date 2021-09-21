@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
 import os
 from pathlib import Path
 from os.path import join
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pr!$+bs3xcpt3%9ca-wvknfk0=u(a%m=1mbm1@0vv-l9*57fea'
+SECRET_KEY = 'django-insecure-=)(@s_#jgf6iprz49aghe$fr&-14yv2_c45=$)fvf+6(i2(7is'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hero'
+    'hero',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
-
 )
 STATIC_ROOT = BASE_DIR / "static_assets"
 

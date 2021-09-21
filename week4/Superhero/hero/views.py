@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from .models import Hero
 
 class IndexView(TemplateView):
-    template_name = 'Index.html'
+    template_name = 'index.html'
 
 class HeroListView(ListView):
     model = Hero
@@ -15,6 +15,6 @@ class HeroDetailView(TemplateView):
     template_name = 'hero_detail.html'
 
     def get_context_data(self, **kwargs):
-        hero_id = kwargs ['pk']
+        hero_id = kwargs['pk']
         hero = Hero.objects.get(pk=hero_id)
-        return {'hero' : hero}
+        return {'hero': hero}

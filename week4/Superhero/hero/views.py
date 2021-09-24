@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from .models import Hero
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'Index.html'
 
 class HeroListView(ListView):
     model = Hero

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperHero Detail</title>
+    <link rel="stylesheet" href= "{% static 'style.css' %}" >
+</head>
+
+<body>
+    <h1>SuperHero</h1>
+    <h2>{{ superhero.name }}</h2>
+    <p>{{ superhero.description }}</p>
+    <p>{{ superhero.strength }}</p>
+    <p>{{ superhero.weakness }}</p>
+    <p>
+        <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width="500">
+    </p>
+    <p>
+        <a href="/superhero/">Show all Heroes</a>
+    </p>
+</body>
+
+</html>

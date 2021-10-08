@@ -3,7 +3,7 @@ from django.urls.base import reverse_lazy
 
 class Hero (models.Model):
     name = models.CharField(max_length=20)
-    identity = models.CharField(max_length=200)
+    identity = models.CharField(max_length=200, default = "--")
     description = models.TextField(default= "--")
     strength = models.CharField(max_length=500, default= "--")
     weakness = models.CharField(max_length=500, default= "--")
@@ -15,7 +15,7 @@ class Hero (models.Model):
 
 class Superhero(models.Model):
     name = models.CharField(max_length=20)
-    identity = models.CharField(max_length=200, default="--")
+    identity = models.CharField(max_length=200, default= "--")
     description = models.TextField(default= "--")
     strength = models.CharField(max_length=500, default= "--")
     weakness = models.CharField(max_length=500, default= "--")

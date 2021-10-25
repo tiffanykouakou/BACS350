@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Gallery</title>
+    <link rel="stylesheet" href= "{% static 'style.css' %}" >
+</head>
+
+<body>
+    <p>
+    <h1>Superhero Gallery </h1>
+        <table>
+            <tr>
+                <th>Superhero Name</th>
+                <th>Superhero Identity</th>
+                <th>Superhero Image</th>
+                <th>Detail Page</th>
+            </tr>
+            {% for superhero in superhero_list %}
+                <tr>
+                    <td> {{ superhero.name }}</td>
+                    <td> {{ superhero.identity }}</td>
+                    <td><img src = "{{ superhero.image }}" alt = "{{ superhero.name }}" width="300"></td>
+                    <td><button><a href="{{ superhero.pk }}"> {{ superhero.name  }}-Detail</a></button></td>
+                </tr>
+                {% endfor %}
+        </table>
+
+    </p>
+    <button><a href="/admin/" class="btn btn-success m-5"> Modify Database with Admin Views </a></button>
+    <button><a href="/superhero/add" class = "btn btn-success m-5"> Add A New Superhero</a></button>
+    
+</body>
+</html>

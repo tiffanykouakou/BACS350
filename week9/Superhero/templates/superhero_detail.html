@@ -1,4 +1,5 @@
-{% load static %}
+{% extends 'superhero_theme.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,29 +7,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperHero Detail</title>
-    <link rel="stylesheet" href= "{% static 'style.css' %}" >
+    <title>Superhero Detail</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
-    <h1>SuperHero</h1>
-    <h2>{{ superhero.name }}</h2>
-    <p>{{ superhero.description }}</p>
-    <p>{{ superhero.strength }}</p>
-    <p>{{ superhero.weakness }}</p>
-    <p>
-        <a href="{{ superhero.image }}">
-            <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width="500">
-        </a>
-    </p>
+    {% block content %}
+    <h1>Superhero</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Identity</th>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+                <th scope="col">Strength</th>
+                <th scope="col">Weakness</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td> {{ hero.name }}</td>
+            <td> {{ hero.identity }}</td>
+            <td> <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width=300></td>
+            <td> {{ hero.description }}</td>
+            <td> {{ hero.strength }}</td>
+            <td> {{ hero.weakness }}</td>
+            <td>
+                <!-- <a href=" {{ hero.pk }}" class="btn btn-primary m-2">Detail</a> -->
+                <a href="/superhero/{{ superhero.pk}}/" class="btn btn-info m-2">Edit</a>
+                <a href="/superhero/{{ superhero.pk}}/delete" class="btn btn-danger m-2">Delete</a>
+            </td>
+        </tbody>
+    
+    <p><a href="/superhero/" class="btn btn-danger m-3">Back</a></p>
+    {% endblock content %}
+    
     <p>
         <button>
-            <a href="/superhero/{{ superhero.pk }}/edit">Edit</a>
+            <a href="/superhero/{{ superhero.pk }}/edit">Edit this Page</a>
         </button>
         <button>
             <a href="/superhero/">Show all Heroes</a>
         </button>
     </p>
 </body>
-
 </html>

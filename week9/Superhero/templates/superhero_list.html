@@ -7,32 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superhero Gallery</title>
-    <link rel="stylesheet" href= "{% static 'style.css' %}" >
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
-    <p>
-    <h1>Superhero Gallery </h1>
-        <table>
-            <tr>
-                <th>Superhero Name</th>
-                <th>Superhero Identity</th>
-                <th>Superhero Image</th>
-                <th>Detail Page</th>
-            </tr>
-            {% for superhero in superhero_list %}
+    {% block content %}
+    <h1>Superhero Gallery</h1>
+    <div class='text-left mt-2'>
+        <table class="table table-bordered table-dark mt-4">
+            <thead>
                 <tr>
-                    <td> {{ superhero.name }}</td>
-                    <td> {{ superhero.identity }}</td>
-                    <td><img src = "{{ superhero.image }}" alt = "{{ superhero.name }}" width="300"></td>
-                    <td><button><a href="{{ superhero.pk }}"> {{ superhero.name  }}-Detail</a></button></td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Identity</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Strength</th>
+                    <th scope="col">Weakness</th>
                 </tr>
-                {% endfor %}
+            </thead>
+            {% for hero in object_list %}
+            </h2>
+            <tbody>
+                <td> {{ hero.name }}</td>
+                <td> {{ hero.identity }}</td>
+                <td> <img src="{{ hero.image }}" alt="{{ hero.name }}" width=300></td>
+                <td> {{ hero.description }}</td>
+                <td> {{ hero.strength }}</td>
+                <td> {{ hero.weakness }}</td>
+                <td><a href=" {{ hero.pk }}" class="btn btn-primary m-2">Detail</a>
+                    <a href="/hero/{{ hero.pk}}/" class="btn btn-info m-2">Edit</a>
+                    <a href="/hero/{{ hero.pk}}/delete" class="btn btn-danger m-2">Delete</a>
+                </td>
+            </tbody>
+            {% endfor %}
         </table>
+    </div>
+{% endblock content %}
 
+    <p>
+        <button><a href="/admin/" class="btn btn-success m-5">Modify Database with Admin Views</a></button>
+        <button><a href="/superhero/add" class="btn btn-success m-5">Add New Superhero</a></button>
     </p>
-    <button><a href="/admin/" class="btn btn-success m-5"> Modify Database with Admin Views </a></button>
-    <button><a href="/superhero/add" class = "btn btn-success m-5"> Add A New Superhero</a></button>
     
 </body>
 </html>

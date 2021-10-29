@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
@@ -18,17 +19,23 @@ class SuperheroDetailView(DetailView):
     model = Superhero
     template_name = 'superhero_detail.html'
 
-class SuperheroCreateView(CreateView):
+    def get_context_data(self, **kwargs):
+        hero_id = kwargs['pk']
+        hero = Superhero.objects.get(pk=hero_id)
+        return {'hero': hero}
+
+
+class SuperheroCreateView(LoginRequiredMixin, CreateView):
     model = Superhero
     template_name = 'superhero_new.html'
     fields = ['name', 'identity', 'description', 'strength', 'weakness', 'image']
 
-class SuperheroUpdateView(UpdateView):
+class SuperheroUpdateView(LoginRequiredMixin, UpdateView):
     model = Superhero
     template_name = 'superhero_edit.html'
     fields = ['name', 'identity', 'description', 'strength', 'weakness', 'image']
 
-class SuperheroDeleteView(DeleteView):
+class SuperheroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
     template_name = 'superhero_delete.html'
     success_url = reverse_lazy('superhero_list')

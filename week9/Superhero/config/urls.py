@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import site
 from django.urls import path
 from django.views.generic import RedirectView
-from hero.views import IndexView, SuperheroListView, SuperheroDetailView, SuperheroCreateView,SuperheroUpdateView, SuperheroDeleteView, SigninView
+from hero.views import IndexView, SuperheroListView, SuperheroDetailView, SuperheroCreateView,SuperheroUpdateView, SuperheroDeleteView, SignupView
 from hero.views_article import ArticleDeleteView, ArticleDetailView, ArticleListView, ArticleCreateView, ArticleUpdateView
 from django.conf import settings
 from django.urls.conf import include, include
@@ -17,7 +17,7 @@ urlpatterns = [
     path('superhero/<int:pk>/edit', SuperheroUpdateView.as_view()),
     path('superhero/<int:pk>/delete', SuperheroDeleteView.as_view()),
     path(r'admin/', site.urls),
-    path('signin/', SigninView.as_view()),
+    path('signin/', SignupView.as_view()),
 
     # User account urls
     path('accounts/', include('django.contrib.auth.urls')),

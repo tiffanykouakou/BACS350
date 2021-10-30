@@ -40,7 +40,7 @@ class SuperheroDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'superhero_delete.html'
     success_url = reverse_lazy('superhero_list')
 
-class SigninView(TemplateView):
+class SignupView(TemplateView):
     model = Superhero
     template_name = 'signup.html'
    

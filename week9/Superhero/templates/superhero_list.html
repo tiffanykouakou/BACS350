@@ -14,7 +14,7 @@
     {% block content %}
     <h1>Superhero Gallery</h1>
     <div class='text-left mt-2'>
-        <table class="table table-bordered table-dark mt-4">
+        <table class="table table-bordered table-light mt-4">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -30,7 +30,7 @@
             <tbody>
                 <td> {{ hero.name }}</td>
                 <td> {{ hero.identity }}</td>
-                <td> <img src="{{ hero.image }}" alt="{{ hero.name }}" width=300></td>
+                <td> <img src="{{ hero.image }}" alt="{{ hero.name }}" width=150></td>
                 <td> {{ hero.description }}</td>
                 <td> {{ hero.strength }}</td>
                 <td> {{ hero.weakness }}</td>

@@ -9,7 +9,7 @@ class superheroView(RedirectView):
     url = '/superhero/'
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'Index.html'
 
 class SuperHeroListView(ListView):
     model = Superhero

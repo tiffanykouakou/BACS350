@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete superhero</title>
-    <link rel="stylesheet" href= "{% static 'style.css' %}" >
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Delete Superhero</title>
 </head>
 <body>
-    <h1>Delete Superhero</h1>
-
-<form action="" method="superhero"> {% csrf_token %}
-    <p> Are you sure you want to delete "{{ superhero.name }}"?</p>
-    <input type="submit" value="Confirm">
-</form>
-    
+    <form action="" method="superhero">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ superhero.name}}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
 </body>
 </html>

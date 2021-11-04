@@ -3,7 +3,7 @@ from django.contrib.admin import site
 from django.urls import path
 from django.views.generic.base import RedirectView
 from hero.views import IndexView, SuperHeroListView, SuperHeroDetailView, SuperheroCreateView, SuperheroUpdateView, SuperheroDeleteView, SigninView
-from hero.views_articles import ArticleDeleteView, ArticleDetailView, ArticleListView, ArticleCreateView, ArticleUpdateView
+from hero.views_article import ArticleDeleteView, ArticleDetailView, ArticleListView, ArticleCreateView, ArticleUpdateView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls.conf import include

@@ -1,9 +1,7 @@
 {% extends 'account_theme.html' %}
 
-
 {% block content %}
-<div class="container bg-light text-dark m-3 p-3">
-
+<div class="container bg-dark text-light m-3 p-3">
     <h1>List of User Accounts</h1>
 
     <table class="table table-hover  p-3 m-5">
@@ -23,14 +21,10 @@
         {% endfor %}
     </table>
 
-
     <p>
         <a href="/admin/" class="btn btn-warning m-5">Modify Database with Admin Views</a>
-        <a href="{% url 'account_add' %}" class="btn btn-warning m-5">Add User Account</a>
+        <a href="{% url 'account_add' %}" class="btn btn-warning m-5">Add Account</a>
     </p>
-
 </div>
-
-
 
 {% endblock content %}

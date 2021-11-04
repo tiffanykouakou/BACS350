@@ -1,7 +1,6 @@
-{% load static %}
+{% extends 'account_theme.html' %}
 
 {% block content %}
-
 <h1>Account Details</h1>
 <ul>
     <li class="m-2 ">Name: {{ object.first_name }} {{ object.last_name }}</li>

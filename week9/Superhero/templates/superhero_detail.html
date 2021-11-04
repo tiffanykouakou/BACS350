@@ -1,5 +1,4 @@
 {% extends 'superhero_theme.html' %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,13 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superhero Detail</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
     {% block content %}
     <h1>Superhero</h1>
-    <table class="table">
+    <table>
         <thead>
             <tr>
                 <th scope="col">Name</th>
@@ -26,29 +24,24 @@
             </tr>
         </thead>
         <tbody>
-            <td> {{ hero.name }}</td>
-            <td> {{ hero.identity }}</td>
-            <td> <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width=150></td>
-            <td> {{ hero.description }}</td>
-            <td> {{ hero.strength }}</td>
-            <td> {{ hero.weakness }}</td>
-            <td>
-                <!-- <a href=" {{ hero.pk }}" class="btn btn-primary m-2">Detail</a> -->
-                <a href="/superhero/{{ superhero.pk}}/" class="btn btn-info m-2">Edit</a>
-                <a href="/superhero/{{ superhero.pk}}/delete" class="btn btn-danger m-2">Delete</a>
-            </td>
+            <td> {{ superhero.name }}</td>
+            <td> {{ superhero.identity }}</td>
+            <td> <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width=200></td>
+            <td> {{ superhero.description }}</td>
+            <td> {{ superhero.strength }}</td>
+            <td> {{ superhero.weakness }}</td>
         </tbody>
-    
-    <p><a href="/superhero/" class="btn btn-danger m-3">Back</a></p>
-    {% endblock content %}
-    
     <p>
         <button>
             <a href="/superhero/{{ superhero.pk }}/edit">Edit this Page</a>
         </button>
         <button>
+            <a href="/superhero/{{ superhero.pk}}/delete">Delete</a>
+        </button>
+        <button>
             <a href="/superhero/">Show all Heroes</a>
         </button>
     </p>
+    {% endblock content %}
 </body>
 </html>

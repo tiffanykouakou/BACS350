@@ -1,14 +1,11 @@
 {% load crispy_forms_tags %}
 
-
-<form action="" method="post">{% csrf_token %}
-
-    <div class="container-fluid">
-        <div class="col">
+<form action= "" methods= "post"> {% csrf_token %}
+    <div class= "container-fluid">
+        <div class= "col">
             {{ form|crispy }}
         </div>
     </div>
 
-    <button class="btn btn-success mt-5" type="submit">Save</button>
-
+    <button class= "btn btn-success mt-5" type= "sumbit">Submit</button>
 </form>

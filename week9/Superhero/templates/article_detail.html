@@ -1,13 +1,10 @@
-{% load static %}
+{% extends 'superhero_theme.html' %}
 
 {% block content %}
-
 <div class="container-fluid m-5">
-
-    <h1 class="text-primary">Article Details</h1>
-
+    <h1 class="text-primary">Article Detail</h1>
     <p>Title:</p>
-    <p><b>{{ object.superhero }}</b></p>
+    <p><b>{{ object.hero }}</b></p>
     <p>Order:</p>
     <p><b>{{ object.order }}</b></p>
     <p>Document:</p>

@@ -11,11 +11,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view()),
-    path('superhero/', SuperheroListView.as_view()),
-    path('superhero/<int:pk>', SuperheroDetailView.as_view()),
-    path('superhero/add', SuperheroCreateView.as_view()),
-    path('superhero/<int:pk>/edit', SuperheroUpdateView.as_view()),
-    path('superhero/<int:pk>/delete', SuperheroDeleteView.as_view()),
+    path('superhero/', SuperheroListView.as_view(), name = 'superhero_list'),
+    path('superhero/<int:pk>', SuperheroDetailView.as_view(), name='superhero_details'),
+    path('superhero/add', SuperheroCreateView.as_view(), name='superhero_add'),
+    path('superhero/<int:pk>/edit', SuperheroUpdateView.as_view(), name = 'superhero_edit'),
+    path('superhero/<int:pk>/delete', SuperheroDeleteView.as_view(), name='Superhero_delete'),
     path(r'admin/', site.urls),
     path('signin/', SignupView.as_view()),
 
@@ -31,4 +31,4 @@ urlpatterns = [
     path('article/<int:pk>/', ArticleUpdateView.as_view(), name='article_edit'),
     path('article/<int:pk>/delete',
          ArticleDeleteView.as_view(),  name='article_delete'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 

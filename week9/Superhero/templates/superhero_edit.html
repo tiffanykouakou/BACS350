@@ -14,9 +14,11 @@
 
 <form action="" method="post">{% csrf_token %}
 
-    {{ form.as_p }}
+    {{ form|crispy }}
+
 
     <button class="btn btn-success mt-5" type="submit">Save Record</button>
+    <a href="/superhero/" class="btn btn-success m-3">Back</a>
 </form>
 </body>
 </html>

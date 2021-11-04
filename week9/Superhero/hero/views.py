@@ -1,46 +1,40 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
-from django.views.generic import ListView, CreateView, DeleteView, DetailView, UpdateView, RedirectView
+from django.views.generic import ListView, CreateView, DeleteView, DetailView, RedirectView, UpdateView
 from .models import Superhero
+from .models import Hero
 
 class superheroView(RedirectView):
     url = '/superhero/'
-    
-class IndexView(TemplateView):
-    template_name = 'Index.html'
 
-class SuperheroListView(ListView):
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+class SuperHeroListView(ListView):
     model = Superhero
     template_name = 'superhero_list.html'
 
-class SuperheroDetailView(DetailView):
+class SuperHeroDetailView(DetailView):
     model = Superhero
     template_name = 'superhero_detail.html'
 
-    def get_context_data(self, **kwargs):
-        hero_id = kwargs['pk']
-        hero = Superhero.objects.get(pk=hero_id)
-        return {'hero': hero}
-
-
-class SuperheroCreateView(LoginRequiredMixin, CreateView):
+class SuperheroCreateView(CreateView):
     model = Superhero
     template_name = 'superhero_new.html'
     fields = ['name', 'identity', 'description', 'strength', 'weakness', 'image']
 
-class SuperheroUpdateView(LoginRequiredMixin, UpdateView):
+class SuperheroUpdateView(UpdateView):
     model = Superhero
     template_name = 'superhero_edit.html'
     fields = ['name', 'identity', 'description', 'strength', 'weakness', 'image']
+    success_url = reverse_lazy('templates/superhero_list')
 
-class SuperheroDeleteView(LoginRequiredMixin, DeleteView):
+class SuperheroDeleteView(DeleteView):
     model = Superhero
     template_name = 'superhero_delete.html'
-    success_url = reverse_lazy('superhero_list')
+    success_url = reverse_lazy('templates/superhero_list')
 
-class SignupView(TemplateView):
+class SigninView(TemplateView):
     model = Superhero
     template_name = 'signup.html'
-   

@@ -2,11 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
-# from django.views.generic.base import TemplateView
 from markdown import markdown
 
 from .models import Article
-
 
 class ArticleView(RedirectView):
     url = '/article/'
@@ -31,7 +29,6 @@ class ArticleDetailView(DetailView):
         article.html = markdown(article.markdown)
         article.save()
         return kwargs
-
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     template_name = "article_add.html"

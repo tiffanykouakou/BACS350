@@ -1,0 +1,59 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<style>
+    li {
+        float: right;
+        text-align: center;
+        width: 15%;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    h1{
+        color: rgb(184, 233, 205);
+        background-color:white;
+        padding: 20px;
+        border: 20px, solid, white;
+        text-align: center;
+    }
+</style>
+<nav style="display: block;">
+    <div class= "container">
+        <h1><a class= "mainHeader" href="/">Superhero News</a></h1>
+        <ol style="list-style-type: none; margin: 4px, 2px; padding: 10px 15px; overflow: hidden; border-radius: 4px; background-color: white;">
+            <li class= "nav-item">
+                <a class= "nav-link" href="/superhero/">Superhero List</a>
+            </li>
+            <li class= "nav-item">
+                <a class= "nav-link" href="/superhero/add">Add Superhero</a>
+            </li>
+            <li class= "nav-item">
+                <a class= "nav-link" href="/admin/">Database</a>
+            </li>
+            <li class= "nav-item">
+                <a class= "nav-link" href="/article/">Article</a>
+            </li>
+
+            {% if user.is_authenticated %}
+            <li class= "nav-item">
+                <a class= "nav-link" href="{% url 'logout' %}">Welcome {{ user.username }}</a>
+            </li>
+            <li class= "nav-item">
+                <a class= "nav-link" href="{% url 'logout' %}">Log out</a>
+            </li>
+
+            {% else %}
+            <li class= "nav-item">
+                <a class= "nav-link" href="{% url 'login' %}">Log In</a>
+            </li>
+
+            <li class= "nav-item">
+                <a class= "nav-link" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+
+            {% endif %}
+        </ol>
+    </div>
+</nav>

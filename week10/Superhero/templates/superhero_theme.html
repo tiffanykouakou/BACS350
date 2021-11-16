@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Superhero Theme</title>
+</head>
+
+
+<body class="bg-dark text-light">
+    {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock navbar %}
+
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock header %}
+
+    {% block content %}
+    <h2>No Main Block Defined</h2>
+    {% endblock content %}
+
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock footer %}
+</body>
+
+</html>

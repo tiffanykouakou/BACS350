@@ -1,0 +1,54 @@
+{% extends 'superhero_theme.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Gallery</title>
+</head>
+
+<body>
+    {% block content %}
+    <h1>Superhero Gallery</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 20%">Name</th>
+                    <th scope="col">Identity</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Strength</th>
+                    <th scope="col">Weakness</th>
+                    <th scope="col">Links</th>
+                </tr>
+            </thead>
+            {% for superhero in object_list %}
+            </h2>
+            <tbody>
+                <td> {{ superhero.name }}</td>
+                <td> {{ superhero.identity }}</td>
+                <td> <img src="{{ superhero.image }}" alt="{{ superhero.name }}" width=150></td>
+                <td> {{ superhero.description }}</td>
+                <td> {{ superhero.strength }}</td>
+                <td> {{ superhero.weakness }}</td>
+                <td><a href=" {{ superhero.pk }}" class="btn btn-primary m-2">Detail</a>
+                    <a href="/superhero/{{ superhero.pk }}/edit" class="btn btn-info m-2">Edit</a>
+                    <a href="/superhero/{{ superhero.pk }}/delete" class="btn btn-danger m-2">Delete</a>
+                </td>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>
+        <button><a href="/admin/" class="btn btn-success m-5">Modify Database with Admin Views</a></button>
+        <button><a href="/superhero/add" class="btn btn-success m-5">Add New Superhero</a></button>
+    </p>
+    
+</body>
+</html>
+{% endblock content %}
